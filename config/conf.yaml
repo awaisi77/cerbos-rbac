@@ -1,0 +1,20 @@
+---
+server:
+  httpListenAddr: ":3592"
+  logRequestPayloads: true 
+  adminAPI:
+    enabled: true
+#storage:
+ # driver: "disk" # Valid values are "disk" or "git"
+  #disk: # Only required if "driver" is "disk"
+   # directory: /policies
+    #watchForChanges: true
+storage:
+  driver: "postgres"
+  postgres:
+    url: "postgresql://postgres:root@host.docker.internal/nivoda_local?sslmode=disable&search_path=cerbos"
+    connPool:
+      maxLifeTime: 5m
+      maxIdleTime: 3m
+      maxOpen: 10
+      maxIdle: 5
